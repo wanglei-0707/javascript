@@ -1,0 +1,112 @@
+.a_background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.a_background_top{
+    width:100%;
+    height:71.6%;
+    background: url(../images/background/a_background_top.png) 100% 100%;
+}
+.a_background_middle{
+    width:100%;
+    height:13.1%;
+    background:url(../images/background/a_background_middle.png) 100% 100%;
+}
+.a_background_bottom{
+    width:100%;
+    height:15.3%;
+    background:url(../images/background/a_background_bottom.png) 100% 100%;
+}
+
+#sun{
+    width:201px;
+    height:201px;
+    position: absolute;
+    top:-30px;
+    right:40%;
+    background:url('../images/sun.png');
+    z-index: 1;
+}
+.rotation{
+    -webkit-animation: rotation 30s;
+            animation: rotation 30s;
+}
+@-webkit-keyframes rotation {
+    0%{
+        -webkit-transform: translateX(0) translateY(0);
+                transform: translateX(0) translateY(0);
+    }
+    100%{
+        -webkit-transform: translateX(-2000px) translateY(400px);
+                transform: translateX(-2000px) translateY(400px);
+    }
+}
+@keyframes rotation {
+    0%{
+        -webkit-transform: translateX(0) translateY(0);
+                transform: translateX(0) translateY(0);
+    }
+    100%{
+        -webkit-transform: translateX(-2000px) translateY(400px);
+                transform: translateX(-2000px) translateY(400px);
+    }
+}
+
+.cloud{
+    z-index:2;
+    position: absolute;
+}
+.cloud1{
+    width:181px;
+    height:101px;
+    left:-5%;
+    top:15%;
+    background:url('../images/cloud1.png');
+}
+.cloud2{
+    width:301px;
+    height:140px;
+    right:-5%;
+    background: url('../images/cloud2.png');
+}
+.cloud1Anim{
+    -webkit-animation: smallCloud 30s infinite ;
+            animation: smallCloud 30s infinite ;
+}
+.cloud2Anim{
+    -webkit-animation: largeCloud 60s infinite ;
+            animation: largeCloud 60s infinite ;
+}
+@-webkit-keyframes smallCloud {
+    0%{
+        left: -5%;
+    }
+    100%{
+        left:100%;
+    }
+}
+@keyframes smallCloud {
+    0%{
+        left: -5%;
+    }
+    100%{
+        left:100%;
+    }
+}
+@-webkit-keyframes largeCloud {
+    0%{
+        right: -5%;
+    }
+    100%{
+        right:100%;
+    }
+}
+@keyframes largeCloud {
+    0%{
+        right: -5%;
+    }
+    100%{
+        right:100%;
+    }
+}
