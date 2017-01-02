@@ -5,3 +5,5 @@
 [demo](https://wanglei-0707.github.io/javascript/)
 
 [雪花飘落](https://wanglei-0707.github.io/javascript/snow/index.html)
+
+[慕课七夕](https://wanglei-0707.github.io/javascript/慕课七夕/index.html)
