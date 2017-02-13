@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="block" type="button">方块</button>
+    <button id="circle" type="circle">正圆</button>
+    <p>点击方块按钮后，在屏幕空白处点击，会在点击处生成一个方块，点击方块，会在控制台打印“Hello，I am block！！！”</p>
+    <p>点击正圆按钮后，在屏幕空白处点击，会在点击处生成一个圆，点击圆，会在控制台打印“Hello，I am circle！！！”，再次点击，圆消失</p>
+    <script src="common.js"></script>
+    <script src="draw.js"></script>
+    <script>
+        var blockbtn = document.getElementById("block");
+        var circlebtn = document.getElementById("circle");
+
+        blockbtn.onclick = function(event){
+            event = getEvent(event);
+            stopPropagation(event);
+            window.onclick = function(event){
+                event = getEvent(event);
+                var drawBlock = new DrawBlock(event.pageX, event.pageY);
+                drawBlock.drawBlock();
+            };
+        };
+
+        circlebtn.onclick = function(event){
+            event = getEvent(event);
+            stopPropagation(event);
+            window.onclick = function(event){
+                event = getEvent(event);
+                var drawCircle = new DrawCircle(event.pageX, event.pageY);
+                drawCircle.drawCircle();
+            };
+        };
+    </script>
+</body>
+</html>

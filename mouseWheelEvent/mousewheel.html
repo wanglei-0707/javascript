@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mousewheel事件实现全屏滚动</title>
+    <style>
+        html, body {
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .container {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            height: 100%;
+            touch-action: none;
+            transition: all 1000ms ease;
+        }
+
+        .page {
+            height: 100%;
+            width: 100%;
+        }
+
+        .page0 {
+            background: #551A8B;
+        }
+
+       .page1 {
+           background: #FF8247;
+       }
+
+       .page2 {
+           background: #CD919E;
+       }
+
+       .page3 {
+           background: #98FB98;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="page page0 active" data-page="0">
+                第一页 博客园-FlyElephant
+            </div>
+            <div class="page page1" data-page="1">
+                第二页
+            </div>
+            <div class="page page2" data-page="2">
+                第三页
+            </div>
+            <div class="page page3" data-page="3">
+                第四页
+            </div>
+        </div>
+    </div>
+    <script src="../frames/jquery-3.1.1.min.js"></script>
+    <script>
+    $(function() {
+        $('.container').on('mousewheel', function(event) {
+            var currentPage = parseInt($('.active').attr('data-page'));
+            if (event.originalEvent.wheelDelta > 0) {
+                var prevpage = currentPage - 1;
+                if (prevpage >= 0) {
+                    $('.page' + prevpage).addClass('active');
+                    $('.page' + currentPage).removeClass('active');
+                    $('.wrapper').css({
+                      'transform': 'translate(0,' + (prevpage * -100) + '%)'
+                    });
+                }
+            } else {
+                var nextpage = currentPage + 1;
+                if (nextpage < 4) {
+                  $('.page' + nextpage).addClass('active');
+                  $('.page' + currentPage).removeClass('active');
+                  $('.wrapper').css({
+                      'transform': 'translate(0,' + (nextpage * -100) + '%)'
+                  });
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>
