@@ -21,6 +21,10 @@
     2. HTTPS（securely transferring web pages）服务器，默认的端口号为443/tcp 443/udp；
     3. Telnet（不安全的文本传送），默认端口号为23/tcp；
     4. FTP，默认的端口号为21/tcp；
+5. **检测页面的兼容模式**
+
+    1. document.compatMode === "CSS1Compat" // 标准模式
+    2. document.compatMode === "BackCompat" // 兼容模式
 ## CSS
 1. **简述一下src与href的区别**
 

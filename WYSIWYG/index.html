@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>富文本编辑器</title>
+    <link rel="stylesheet" href="../frames/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="menubar" id="menubar">
+            <a href="#" class="btn" data-role="undo" title="undo">
+                <i class="glyphicon glyphicon-arrow-left"></i>
+            </a>
+            <a href="#" class="btn" data-role="redo" title="redo">
+                <i class="glyphicon glyphicon-arrow-right"></i>
+            </a>
+            <a href="#" class="btn" data-role="bold" title="bold">
+                <span class="icon bold">Bold</span>
+            </a>
+            <a href="#" class="btn" data-role="italic" title="italic">
+                <span class="icon italic">Italic</span>
+            </a>
+            <a href="#" class="btn" data-role="underline" title="underline">
+                <span class="icon underline">U</span>
+            </a>
+            <a href="#" class="btn" data-role="strickthrough" title="strickthrough">
+                <span class="icon throughline">abc</span>
+            </a>
+            <a href="#" class="btn" data-role="justifyleft" title="justifyleft">
+                <i class="glyphicon glyphicon-align-left"></i>
+            </a>
+            <a href="#" class="btn" data-role="justifycenter" title="justifycenter">
+                <i class="glyphicon glyphicon-align-center"></i>
+            </a>
+            <a href="#" class="btn" data-role="justifyright" title="justifyright">
+                <i class="glyphicon glyphicon-align-right"></i>
+            </a>
+            <a href="#" class="btn" data-role="justifyfull" title="justifyfull">
+                <i class="glyphicon glyphicon-align-justify"></i>
+            </a>
+            <a href="#" class="btn" data-role="outdent" title="outdent">
+                <i class="glyphicon glyphicon-indent-left"></i>
+            </a>
+            <a href="#" class="btn" data-role="indent" title="indent">
+                <i class="glyphicon glyphicon-indent-right"></i>
+            </a>
+            <a href="#" class="btn" data-role="insertunorderedlist" title="insertunorderedlist">
+                <i class="glyphicon glyphicon-list"></i>
+            </a>
+            <a href="#" class="btn" data-role="superscript" title="superscript0">
+                <span class="icon">x<span class="super">2</span></span>
+            </a>
+            <a href="#" class="btn" data-role="subscript" title="subscript">
+                <span class="icon">x<span class="sub">2</span></span>
+            </a>
+            <a href="#" class="btn"></a>
+        </div>
+        <div class="content" contenteditable>
+
+        </div>
+    </div>
+    <script src="../frames/jquery-3.1.1.min.js"></script>
+    <script src="../frames/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../frames/wl.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
