@@ -199,6 +199,7 @@ instanceof返回一个布尔值，指出对象是否是特定类的一个实例�
    样例：
    输入：1,9,10
    输出：1
+
 ```
 var input_arrays = ["12","300","38"];
 var a = input_arrays[0];
@@ -620,15 +621,17 @@ console.log(str.split(" ").reverse().join(" "));
    2. 点击正圆按钮，每在屏幕空白处点击鼠标，就在屏幕上生成一个100px的黑色正圆，正圆的中心坐标位于鼠标点击处，点击正圆会console.log("Hello!!, I am circle").再次点击会console.log("Goodbye!!")并以1秒的时间透明度渐变为0，然后消失。
 
 2. **假如页面中存在如下dom节点：**
-```<div id="contain"></div>```
+```
+<div id="contain"></div>
+```
 **有如下数据对象：**
    ```
    var labels = ['小米5'，'小米'，'小米note','红米note','小米pro','红米note2'...]
-
    var colors = ['#f9eaeb','#f2f6e9','#8ad9dd','#c7c7c7','#f8f2ec'...]
    ```
    **要求：**
-   1. 把labels的每个元数据转换为标签元素，例如<span style="#f9eaeb">小米5</span>
+
+   1. 把labels的每个元数据转换为标签元素，例如```<span style="#f9eaeb">```小米5```</span>```
    2. 颜色采用colors的颜色，相邻的元素颜色不能一样，颜色尽可能均匀，丰富。
 
 ## 百度
@@ -642,7 +645,10 @@ console.log(str.split(" ").reverse().join(" "));
 
 2. **HTML5中不再支持或不建议下面哪些元素？**
 
-   a. <font>不支持   b.<center>HTML5新标签，文本水平居中  c.<p>     d.<time>HTML5新标签
+   a. ```<font>```不支持   
+   b.```<center>```HTML5新标签，文本水平居中  
+   c.```<p>```    
+   d.```<time>```HTML5新标签
 
    答案：a
 
@@ -799,10 +805,10 @@ replacement 可以是字符串，也可以是函数。如果它是字符串，�
 
 15. **下面哪些是HTML5的结构标签？**
 
-    a. <article>      
-    b. <section>      
-    c. <nav>     
-    d. <hgroup>
+    a. ```<article>```      
+    b. ```<section>```      
+    c. ```<nav>```    
+    d. ```<hgroup>```
 
     答案：abcd
 
