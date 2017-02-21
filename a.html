@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  #bigBox {
+        border: 2px solid Gray;
+        margin: 100px auto;
+    }
+    #bigBox:after{
+        display: block;
+        content:"";
+        clear:both;
+    }
+  #box1{
+  background: yellow;
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+#box2{
+  background: SkyBlue;
+  width: 120px;
+  height: 100px;
+  float: left; /*测试内容*/
+}
+#box3{
+  background: pink;
+  width: 140px;
+  height: 100px;
+  float: left;
+  /*clear:both; /*测试内容*/*/
+}
+  </style>
+</head>
+<body>
+    <div id="bigBox">
+      <div id="box1">1</div>
+      <div id="box2">2</div>
+      <!-- <div id="clearfix"></div> -->
+      <div id="box3">3</div>
+  </div>
+  <script>
+    var obj = {};
+    obj.log = console.log;
+    obj.log.call(console, this);
+  </script>
+</body>
+</html>
