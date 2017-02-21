@@ -9,3 +9,11 @@
 [慕课七夕](https://wanglei-0707.github.io/javascript/慕课七夕/index.html)
 
 [表单联动](https://wanglei-0707.github.io/javascript/表单联动/index.html)
+
+[mousewheel事件实现全屏滚动](https://wanglei-0707.github.io/javascript/mmouseWheelEvent/index.html)
+
+[表单联动](https://wanglei-0707.github.io/javascript/表单联动/index.html)
+
+[继承实现画图类](https://wanglei-0707.github.io/javascript/drawGraph/index.html)
+
+[简单的富文本编辑器](https://wanglei-0707.github.io/javascript/WYSIWYG/index.html)
