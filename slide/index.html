@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slide</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/slide.css">
+</head>
+<body>
+	<div class="J-Slide slide-main" data-setting='{
+													"width":800,
+													"height":270,
+													"picWidth":450,
+													"picHeight":270,
+													"scale":0.9,
+													"speed":500,
+													"autoPlay":true,
+													"delay":2000,
+													"verticalAlign":"middle"
+												}'>
+		<span class="slide-btn slide-prev-btn"></span>
+		<ul class="slide-list">
+			<li class="slide-item"><a href="#"><img src="image/wn1.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn2.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn3.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn4.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn5.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn6.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn7.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn4.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn5.jpg" alt="" width="100%"></a></li>
+		</ul>
+		<span class="slide-btn slide-next-btn"></span>
+	</div>
+
+	<div class="J-Slide slide-main" data-setting='{
+													"width":800,
+													"height":270,
+													"picWidth":450,
+													"picHeight":270,
+													"scale":0.9,
+													"speed":500,
+													"autoPlay":true,
+													"delay":2000,
+													"verticalAlign":"middle"
+												}'>
+		<span class="slide-btn slide-prev-btn"></span>
+		<ul class="slide-list">
+			<li class="slide-item"><a href="#"><img src="image/wn1.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn2.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn3.jpg" alt="" width="100%"></a></li>
+			<li class="slide-item"><a href="#"><img src="image/wn4.jpg" alt="" width="100%"></a></li>
+		</ul>
+		<span class="slide-btn slide-next-btn"></span>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/slide.js"></script>
+	<script>
+		$(function(){
+			Slide.init($(".J-Slide"));
+		});
+	</script>
+</body>
+</html>

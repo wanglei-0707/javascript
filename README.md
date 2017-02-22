@@ -15,3 +15,5 @@
 [继承实现画图类](https://wanglei-0707.github.io/javascript/drawGraph/index.html)
 
 [简单的富文本编辑器](https://wanglei-0707.github.io/javascript/WYSIWYG/index.html)
+
+[jQuery图片轮播](https://wanglei-0707.github.io/javascript/slide/index.html)
