@@ -17,3 +17,5 @@
 [简单的富文本编辑器](https://wanglei-0707.github.io/javascript/WYSIWYG/index.html)
 
 [jQuery图片轮播](https://wanglei-0707.github.io/javascript/slide/index.html)
+
+[各种情况下的居中](https://wanglei-0707.github.io/javascript/center/index.html)

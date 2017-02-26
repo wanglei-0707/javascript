@@ -1,0 +1,12 @@
+.box{
+    width:200px;
+    height:200px;
+    background:red;
+    /*margin-bottom: 200px;*/
+}
+.demo{
+    padding:20px;
+    margin:20px;
+    border:1px solid red;
+    
+}

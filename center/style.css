@@ -1,0 +1,96 @@
+.wrapper{
+    width:100%;
+    height:200px;
+    background:#ccc;
+    margin-bottom:20px;
+    position: relative;
+}
+.box{
+    width:200px;
+    height:100px;
+    background:red;
+}
+.wrapper1{
+    text-align: center;
+}
+.box1{
+    margin:0 auto;
+}
+.wrapper2{
+    text-align: center;
+}
+.box2, .box3{
+    display: inline-block;
+}
+.wrapper3{
+    display: flex;
+    justify-content: center;
+}
+.box4, .box5{
+    margin-right:10px;
+}
+.wrapper4{
+    height:auto;
+    padding:50px 0;
+}
+.click{
+    padding:20px 20px;
+    margin:0 20px;
+    background:#000;
+    color:#fff;
+}
+.wrapper5{
+    height:100px;
+    line-height: 100px;
+}
+.wrapper6{
+    display: table;
+}
+.wrapper6 .table-center{
+    display: table-cell;
+    vertical-align: middle;
+}
+.wrapper7{
+    display: flex;
+    align-items: center;
+    /*flex-direction: column;
+    justify-content: center;*/
+}
+.wrapper8{
+
+}
+.box6{
+    position:absolute;
+    top:50%;
+    margin-top:-50px;
+}
+.box7{
+    position:absolute;
+    height:auto;
+    top:50%;
+    transform: translateY(-50%);
+}
+.wrapper9{
+    display: flex;
+    align-items: center;
+}
+.box8{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-100px;
+}
+.box9{
+    position:absolute;
+    width:auto;
+    height:auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.wrapper10{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
