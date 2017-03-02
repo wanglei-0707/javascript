@@ -1,1 +1,11 @@
-
+var ul = document.getElementById('demo');
+var style = window.getComputedStyle(ul);
+var style1 = window.getComputedStyle(ul, '::before');
+var style2 = ul.currentStyle;
+console.log(style);
+console.log(style.width, style.height, style.content);
+console.log(style1.width, style1.height, style1.content);
+// console.log(style2.width, style2.height, style2.content);
+console.log("ssss:"+style.getAttribute('borderBottom'));
+console.log(style.getPropertyValue('float'));
+console.log(style.getPropertyValue('border-bottom'));

@@ -30,6 +30,10 @@
     2. jpeg：与jpg类似，支持有陨压缩，不支持透明，不支持动画，非矢量。用一种有损压缩法压缩图片，把人肉眼难以察觉的图象色彩删除，由此来获得比较大的压缩比，所以图片占用空间往往很小，而且“外表”上也看不出有什么差别，但是此格式压缩后的图片无法还原，所以在处理JPEG图片的时候请不要多次反复修改存储，这样的话图象会逐渐恶化。
     3. png：不支持压缩，支持透明、半透明、不透明，不支持动画，非矢量，与GIF格式相似，压缩比高于GIF，能够处理的色数远远多于GIF格式，最大可达280兆色。
     4. gif：支持有陨压缩，不支持全透明，支持半透明，支持动画，非矢量。最大只能够处理256色的图像。其原理也就是把多张图象保存为一个图象从而形成动画，说到底仍然是图片格式（位图）。文件占用空间很小。使用该格式的场景：网页背景、小图标、色彩度低的小切片、动画图片；
+7. **清单文件的MIME类型是**
+
+    text/cache-manifest
+8. **<img src="url.gif" dynsrc="url.avi">表示尚未完全读入avi文件时，先在AVI播放区域显示该图像，文件下载完成后，图片被屏蔽，显示视频文件。
 ## CSS
 1. **简述一下src与href的区别**
 
@@ -96,7 +100,15 @@ input:-webkit-autofill {
     2. link引用css时，在页面载入时同时加载，@important需要页面网页完全载入以后加载
     3. link支持使用js控制dom改变样式，而@import不支持。
     4. import可以还可以在css中再引入其他css文件，但是会增加http请求。import必须在样式表头部最先声明，并且其后的分号是必须的。
+12. **CSS hack**
 
+    CSS Hack大致有3种表现形式，CSS属性前缀法、选择器前缀法以及IE条件注释法（即HTML头部引用if IE）Hack，实际项目中CSS Hack大部分是针对IE浏览器不同版本之间的表现差异而引入的。
+    1. 属性前缀法(即类内部Hack)：例如 IE6能识别下划线 "_" 和星号 " * "，IE7能识别星号" * "，但不能识别下划线"_"，IE6~IE10都认识"\9"，但firefox前述三个都不能认识。
+    2. 选择器前缀法(即选择器Hack)：例如IE6能识别*html .class{}，IE7能识别*+html .class{}或者*:first-child+html .class{}。
+    3. IE条件注释法(即HTML条件注释Hack)：针对所有IE(注：IE10+已经不再支持条件注释)： <!--[if IE]>IE浏览器显示的内容 <![endif]-->，针对IE6及以下版本： <!--[if lt IE 6]>只在IE6-显示的内容 <![endif]-->。这类Hack不仅对CSS生效，对写在判断语句里面的所有代码都会生效。
+13. **对内联元素进行float之后算是块级还是内联元素？**
+
+    块级
 ## JavaScript
 1. **简述同步和异步的区别**
 
@@ -183,6 +195,114 @@ input:-webkit-autofill {
     **该代码在浏览器中执行，输出的日志结果是什么？**
 
     window
+9. **数据类型的转换，强类型转换和弱类型转换有哪些。**
+
+转换函数：
+    1. parseInt(),可提供第二个参数作为转换时使用的基数， parseFloat()，只解析十进制数，十六进制会被转为0.两种方法都会忽略前导0.
+
+强制类型转换：
+    1. Number()可将任意数据类型转换为数值。null->0,undefined->NaN,空字符串->0
+    2. Boolean()
+    3. String():null->null,undefined->undefined,其他值调用toString()方法转换。
+弱类型转换：
+    1. 字符串转数值： +str, str-0
+    2. 数值转字符串： 123 + ''
+    3. toString()
+    4. ==
+10. **jquery的$(document).ready()和JavaScript中的window.onload的区别：**
+    1. window.onload必须等待网页中所有的内容全部加载完毕（包括图片）才能执行。$(document).ready()只要DOM完全就绪就会被执行，因此可能此时元素的关联文件还未下载完.
+    2. window.onload不能同时编写多个，后面的会覆盖前面的。$(document).ready()可以编写多个
+    3. window.onload无简写形式。$(document).ready()的简写形式$(function(){})
+
+## jquery
+1. jquery获取父元素
+
+    ```
+    <ul class="demo item">
+          <li class="item"><a href="" class="link"></a>Buy milk</li>
+          <li class="item"><a href="" class="link"></a>Take the dog for a walk</li>
+          <li><a href="" class="link"></a>Exercise</li>
+          <li>Play music</li>
+          <li></li>
+    </ul>
+    ```
+    1. parent([expr]):取得所有匹配元素的直接父元素的元素集合。
+    ```
+    $('.link').parent('item');
+    ```
+    结果是
+    ```
+    <li class="item"><a href="" class="link"></a>Buy milk</li>
+    <li class="item"><a href="" class="link"></a>Take the dog for a walk</li>
+    ```
+    2. :parent选择器
+    匹配含有子元素或者文本的元素
+    ```
+    $('li:parent');
+    ```
+    结果是：
+    ```
+    <li class="item"><a href="" class="link"></a>Buy milk</li>
+    <li class="item"><a href="" class="link"></a>Take the dog for a walk</li>
+    <li><a href="" class="link"></a>Exercise</li>
+    <li>Play music</li>
+    ```
+    3. parents([expr]):取得所有匹配元素的所有祖先元素的元素集合。
+    ```
+    $('.link').parents('.item');
+    ```
+    结果是：
+    ```
+    <li class="item"><a href="" class="link"></a>Buy milk</li>
+    <li class="item"><a href="" class="link"></a>Take the dog for a walk</li>
+    <ul class="demo item">
+          <li class="item"><a href="" class="link"></a>Buy milk</li>
+          <li class="item"><a href="" class="link"></a>Take the dog for a walk</li>
+          <li><a href="" class="link"></a>Exercise</li>
+          <li>Play music</li>
+          <li></li>
+    </ul>
+    ```
+    4. closest([expr]):首先检查当前元素，如果匹配直接返回当前元素本身，如果不匹配则向上查找父元素，知道找到匹配的父元素并返回该父元素，如果没找到则返回空的jquery对象。
+
+    parents()和closest()的区别：closest从当前元素开始查找，parents从父元素开始查找。closest找到匹配元素就停止，返回0个或1个元素，parents会一直向上查找到根元素，然后把这些元素放进一个临时集合中，再用给定的选择器表达式去过滤，返回0个或1个或多个元素。
+2. jquery绑定事件几种方式
+
+    4种方法：bind(),live(),delegate(),on()
+
+    bind()函数只能针对已经存在的元素进行事件的设置；但是live(),on(),delegate()均支持未来新添加元素的事件设置；官方有一个推荐就是尽量使用on,其他三个方法都是内部调用on来完成的，直接使用on可以提高效率。
+
+    bind():在选择到的元素上绑定特定事件类型的监听函数 **bind()函数只能针对已经存在的元素进行事件的设置,不支持动态绑定** bind()支持jquery的所有版本
+    ```
+    bind: function( types, data, fn ) {
+        return this.on( types, null, data, fn );
+    }
+    $('#myol li').bind('click',getHtml);
+    ```
+    1. type:事件类型，如click、change、mouseover等;
+    2. data:传入监听函数的参数，通过event.data取到。可选;
+    3. function:监听函数，可传入event对象，这里的event是jQuery封装的event对象，与原生的event对象有区别，使用时需要注意
+
+    live():不是将监听器绑定在自己身上，而是绑定在this.context。context是元素的限定范围，通常是document。即利用事件委托机制。用event.currentTarget来获取到当前捕捉到事件的 节点。jquery1.9以下支持，1.9已经删除该方法。
+    ```
+    live: function( types, data, fn ) {
+        jQuery( this.context ).on( types, this.selector, data, fn );
+        return this;
+    }
+    ```
+
+    delegate():监听器绑定在调用此方法的元素上。jquery1.4.2+支持该方法
+    ```
+    delegate: function( selector, types, data, fn ) {
+        return this.on( types, selector, data, fn );
+    }
+    ```
+    selector:用来指定触发事件的目标元素
+
+    on():
+    ```
+    on(type,[selector],[data],fn)
+    ```
 
 ## ES6
 1. **let和var的区别**
@@ -202,3 +322,6 @@ input:-webkit-autofill {
     A FIFO算法 B LRU算法 C Clock算法 D LFU算法
 
     正确答案 : A
+3. **长短轮训和长短链接**
+
+短轮是循环请求～返回（无论有没有结果），长轮是循环请求～返回（有结果，如果超时强制返回）。长连接是多个http请求复用一个TCP连接，短连接则一个请求一个TCP连接。

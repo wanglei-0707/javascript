@@ -1210,6 +1210,9 @@ while(str = read_line()){
     3. relative：生成相对定位的元素，相对于其正常位置进行定位。
     4. static：默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。
     5. inherit：规定应该从父元素继承 position 属性的值。
+    6. center: 与absolute一致，但偏移定位是以定位祖先元素的中心点为参考。盒子在其包含容器垂直水平居中。（CSS3）
+    7. page: 与absolute一致。元素在分页媒体或者区域块内，元素的包含块始终是初始包含块，否则取决于每个absolute模式。（CSS3）
+    8. sticky: 对象在常态时遵循常规流。它就像是relative和fixed的合体，当在屏幕中时按常规流排版，当卷动到屏幕外时则表现如fixed。该属性的表现是现实中你见到的吸附效果。（CSS3）
 4. **float和inline-block什么区别**
     1. 文档流:浮动元素会脱离文档流，并使得周围元素环绕这个元素。而inline-block元素仍在文档流内。因此设置inline-block不需要清除浮动。当然，周围元素不会环绕这个元素，你也不可能通过清除inline-block就让一个元素跑到下面去。
     2. 水平位置：不能通过给父元素设置text-align:center让浮动元素居中,但display：inline-block的元素可以居中。事实上定位类属性设置到父元素上，均不会影响父元素内浮动的元素。但是父元素内元素如果设置了 display：inline-block，则对父元素设置一些定位属性会影响到子元素。（这还是因为浮动元素脱离文档流的关系）。
@@ -1270,8 +1273,10 @@ while(str = read_line()){
 20. **http请求状态码含义**
 21. **获取url和url中的参数，用代码写出来**
 22. **js对象和json字符串的转换**
+
     ```
     jsontext = JSON.stringify(obj);//js对象序列化为json字符串
     obj = JSON.parse(jsontext)//json字符串解析为js对象
     ```
+
 （就记得这些了）
