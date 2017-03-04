@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>接元宝游戏</title>
+	<link rel="stylesheet" type="text/css" href="css/catchGoldIngot.css">
+</head>
+<body>
+	<div id="container">
+		<canvas id="canvas"></canvas>
+		<div id="showPanel">
+			<div>得分<br><span id="score">0</span></div>
+			<button id="gameStart">start</button>
+			<div>时间<br><span id="time">60</span></div>
+		</div>
+		<div id="mask"></div>
+		<div id="controler">
+			<p>本局得分为<span id="showScore"></span></p>
+			<br>
+			<button id="gameAgain">再来一局</button>
+			<button id="out">退出游戏</button>
+		</div>
+		<!-- <div id="startArea">
+			<button id="gameStart">开始新游戏</button>
+		</div> -->
+	</div>
+	<script src="js/wl.js"></script>
+	<script src="js/goldIngot.js"></script>
+	<script src="js/catchGoldIngot.js"></script>
+</body>
+</html>
