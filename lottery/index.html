@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lottery</title>
+    <link rel="stylesheet" href="../frames/reset.css">
+    <!-- <link rel="stylesheet" href="../css/base.css"> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>抽奖</h1>
+    </header>
+    <div class="container">
+        <div class="lottery-panel">
+            <h2>现场抽奖</h2>
+            <div class="lottery">
+                <div class="user-wrapper">
+                    <ul id="user-list">
+                        <li>Victoria</li>
+                        <li>Khunnie</li>
+                        <li>Krystal</li>
+                        <li>Amber</li>
+                        <li>Luna</li>
+                        <li>111111</li>
+                        <li>2222222</li>
+                        <li>3333333</li>
+                        <li>4444444</li>
+                        <li>55555555555</li>
+                        <li>666666666</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mask"></div>
+            <div class="line">
+                <div id="control-btn">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <span id="dot-list"></span>
+        <div id="winner-li"></div>
+        <div class="display-panel">
+            <p>已中奖人数：<span id="winner-num">0</span></p>
+            <span id="online-span">在线：<span id="online-num">10</span></span>
+            <div class="winner-panel">
+                <ul id="winner-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="common.js"></script>
+    <script src="lottery.js"></script>
+    <script>
+        window.onload = function(){
+            var lottery = new Lottery();
+        };
+    </script>
+</body>
+</html>

@@ -25,3 +25,5 @@
 [模态框](https://wanglei-0707.github.io/javascript/modal/index.html)
 
 [jQuery模态框图片轮播](https://wanglei-0707.github.io/javascript/lightBox/index.html)
+
+[抽奖](https://wanglei-0707.github.io/javascript/lottery/index.html)

@@ -8,12 +8,7 @@ var wl = (function(){
 			if(ele.addEventListener){
 				ele.addEventListener(type,handler,false);
 			}else if(ele.attachEvent){
-				/*因为在IE中，事件侦听器即事件处理函数内部的this默认指向window对象，
-				W3C中指向所绑定的对象本身，因此为了使事件处理函数内部的this指向所绑定的对象，
-				可以将函数赋值为该对象的某个属性成为他的方法，那么this指针就指向了所绑定的对象本身。*/
-				ele['e'+type+handler] = handler;
-				ele[type+handler] = function(){ele['e'+type+handler](window.event);};
-				ele.attachEvent("on"+type,ele[type+handler]);
+				ele.attachEvent("on"+type, handler);
 			}
 			else{
 				ele["on"+type] = handler;
@@ -70,6 +65,14 @@ var wl = (function(){
 		},
 		trim: function(){
 			return this.replace(/(^\s+)|(\s+$)/g,'');
+		},
+		//返回元素相对于页面的距离
+		getOffset: function(ele){
+			return ele.getBoundingClientRect ? ele.getBoundingClientRect() : {left: ele.offsetLeft, top: ele.offsetTop};
+		},
+		//返回三个数的中间数
+		limit: function(num, minNum, maxNum){
+			return Math.min(Math.max(num, minNum), maxNum);
 		},
 		//图片加载函数
 		preLoadImg: function(src,callBack){
