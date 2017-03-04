@@ -19,3 +19,5 @@
 [jQuery图片轮播](https://wanglei-0707.github.io/javascript/slide/index.html)
 
 [各种情况下的居中](https://wanglei-0707.github.io/javascript/center/index.html)
+
+[模态框](https://wanglei-0707.github.io/javascript/modal/index.html)

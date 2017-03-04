@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模态框</title>
+    <link rel="stylesheet" href="modalStyle.css">
+</head>
+<body>
+    <button id="control-btn">打开模态框</button>
+    <div class="modal-wrapper">
+        <div class="modal-panel">
+            <div class="modal-header">
+                <span class="modal-close-btn">X</span>
+                <h1>模块框标题</h1>
+            </div>
+            <div class="modal-body">
+                <p>对话框内容</p>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="modal-confirm-btn" value="确定">
+                <input type="button" class="modal-cancel-btn" value="取消">
+            </div>
+        </div>
+    </div>
+    <script src="../frames/wl.js"></script>
+    <script src="modal.js"></script>
+    <script>
+        var modal = new Modal();
+    </script>
+</body>
+</html>
