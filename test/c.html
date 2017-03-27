@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    #bigBox {
+        border: 2px solid Gray;
+        width: 500px;
+        /*height: 400px;*/
+        margin: 100px auto;
+        border:1px solid red;
+    }
+    #bigBox:after{
+        content:"";
+        display: block;
+        clear: both;
+    }
+    #box1{
+        background: yellow;
+        width: 100px;
+        height: 100px;
+        float:left;
+    }
+    #box2{
+        background: SkyBlue;
+        width: 120px;
+        height: 100px;
+        float:left;
+    }
+    #box3{
+        background: pink;
+        width: 140px;
+        height: 100px;
+        float:left;
+    }
+
+</style>
+</head>
+<body>
+    <div style="overflow: auto;width: 100%;">
+        <div style="width: 100%;">
+            <div style="margin-bottom: 30px;width: 100px;height: 100px;background-color: #cccccc;"></div>
+        </div>
+        <div style="width: 100%;">
+            <div style="margin-top: 50px;width: 100px;height: 100px;background-color: #333333;"></div>
+        </div>
+    </div>
+    <ul class="test1">
+        <li>fdg</li>
+        <li>dfggfd</li>
+        <li>ffgfhgfh</li>
+        <!-- fdsg -->
+        <li>
+            <ul class="test2">
+                <li>gdfgfdfd</li>
+            </ul>
+        </li>
+    </ul>
+    <input type="text" readonly="" maxlength="20" placeholder="ddd">
+    <span style="font-size:8px;line-height:20px">nihao</span>
+    <progress></progress>
+    <input id="pwd" class="ipt" type="text" placeholder="密码由6-16为组成" value="">
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="test.js"></script>
+    <script>
+        document.querySelector('div').onclick = function(){
+            console.log('hello world');
+        }
+        console.log(!!window.worker);
+        var worker = new Worker('./worker.js');
+        worker.postMessage = function(event){
+            var data = event.data;
+            console.log("data:"+data);
+        }
+        worker.onerror = function(event){
+            console.log(event.filename, event.lineno, event.message);
+        }
+    </script>
+</body>
+</html>

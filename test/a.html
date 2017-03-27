@@ -3,100 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style>
-        .baseline{
-            background:red;
-            vertical-align:baseline;
-        }
-        .bottom{
-            background:red;
-            vertical-align:bottom;
-        }
-        .top{
-            background:red;
-            vertical-align:top;
-        }
-        .middle{
-            background:red;
-            vertical-align:middle;
-        }
-        .sub{
-            background:red;
-            vertical-align:sub;
-        }
-        .super{
-            background:red;
-            vertical-align:super;
-        }
-        .text-bottom{
-            background:red;
-            vertical-align:text-bottom;
-        }
-        .text-top{
-            background:red;
-            vertical-align:text-top;
-        }
-    </style>
 </head>
 <body>
-    <span class="baseline">
-        你好baseline世界
-    </span>
-    <br>
-    <span class="baseline">
-        你好baseline世界
-    </span>
-    <span class="bottom">
-        你好bottom世界
-    </span>
-    <br>
-    <span class="baseline">
-        你好baseline世界
-    </span>
-    <span class="top">
-        你好top世界
-    </span>
-    <br>
-    <span class="baseline">
-        你好baseline世界
-    </span>
-    <span class="middle">
-        你好middle世界
-    </span>
-    <br>
-    <span class="baseline">
-        你好baseline世界
-    </span>
-    <span class="sub">
-        你好sub世界
-    </span>
-    <br>
-    <span class="baseline">
-        你好baseline世界
-    </span>
-    <span class="super">
-        你好super世界
-    </span>
-    <br>
-    <span class="baseline">
-        你好baseline世界
-    </span>
-    <span class="text-bottom">
-        你好text-bottom世界
-    </span>
-    <br>
-    <span class="baseline">
-        你好baseline世界
-    </span>
-    <span class="text-top">
-        你好text-top世界
-    </span>
-    <script src="jquery-3.1.1.min.js"></script>
-    <!-- <script src="test.js"></script> -->
+    <div id="app">
+        <input type="text" id="a" v-model="text">
+        {{ text }}
+    </div>
     <script>
-        console.log(Number(undefined))
-        console.log(Number(null))
 
+        function nodeToFragment(node, vm){
+            var frag = document.createDocumentFragment();
+            var child;
+            while(child = node.firstChild){
+                console.log("child:"+child);
+                compile(child, vm);
+                frag.appendChild(child);
+            }
+            return frag;
+        }
+
+        function compile(node, vm){
+            var reg = /\{\{(.*)\}\}/;
+            if(node.nodeType === 1){
+                var attr = node.attributes;
+                for(var i=0;i<attr.length;i++){
+                    if(attr[i].nodeName === 'v-model'){
+                        var name = attr[i].nodeValue;
+                        node.addEventListener('input', function(e){
+                            vm[name] = e.target.value;
+                        })
+                        node.value = vm.data[name];
+                        console.log("11111:"+node.value);
+                        node.removeAttribute('v-model') //?
+                    }
+                }
+            }else if(node.nodeType === 3){
+                if(reg.test(node.nodeValue)){
+                    var name = RegExp.$1;
+                    name = name.trim();
+                    node.nodeValue = vm[name];
+                    console.log("22222:"+node.nodeValue);
+                }
+            }
+        }
+
+        function defineReactive(obj, key, val){
+            Object.defineProperty(obj, key, {
+                get: function(){
+                    return val;
+                },
+                set: function(){
+                    if(newval === val){
+                        return;
+                    }
+                    val = newval;
+                    console.log(val);
+                }
+            })
+        }
+
+        function observe(obj, vm){
+            Object.keys(obj).forEach(fucntion(key){
+                defineReactive(vm, key, obj[key]);
+            });
+        }
+
+        function Vue(options){
+            this.data = options.data;
+            var data = this.data;
+            observe(data, this);
+
+            var id = options.el;
+            var dom = nodeToFragment(document.getElementById('app'), this);
+            console.log(dom);
+            document.getElementById('app').appendChild(dom);
+        }
+
+        var vm = new Vue({
+            el: 'app',
+            data: {
+                text: 'hello world',
+            }
+        });
     </script>
 </body>
 </html>

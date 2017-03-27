@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width:100%;
+            /*overflow: hidden;*/
+        }
+        .box{
+            width:250px;
+            margin-left:20px;
+            padding:20px;
+            background: #ccc;
+        }
+        .box1{
+            display: inline-block;
+        }
+        .box2{
+            float:left;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box box1" id="test">
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+        </div>
+        <div class="box box2">
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+            <p>left</p>
+        </div>
+        <div class="box box3">
+            <p>left</p>
+            <p>left</p>
+
+        </div>
+    </div>
+    <script>
+        var test = document.getElementById('test');
+        test.onclick = function(){
+            console.log(this);
+        }
+    </script>
+</body>
+</html>
