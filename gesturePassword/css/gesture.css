@@ -19,10 +19,10 @@ header h1{
     width:100%;
     position: absolute;
     bottom:3rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 .operator-item{
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 .operator-item input[type="radio"]{
     width:1.2rem;
