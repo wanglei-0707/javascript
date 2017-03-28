@@ -1,4 +1,22 @@
-(function(){
+/**
+ * 移动端网页手势密码组件
+ * author wl
+ * 自定义参数如下：
+ * @param {string} canvasId 手势图案所在canvas元素的id
+ * @param {number} width canvas的宽度，默认是屏幕的宽度
+ * @param {number} height canvas的高度，默认是屏幕的高度的一半
+ * @param {string} messageId 显示提示信息的标签id
+ * @param {number} radius 圆点的半径
+ * @param {number} circleDis 圆点之间的距离，不是圆心的距离
+ * @param {string} circleFillColor 被选中的圆点的填充颜色
+ * @param {string} circleStrokeColor 被选中的圆点的线条颜色
+ * @param {string} lineColor 经过的路线的线条颜色
+ * @param {number} lineWidth 经过的路线的线条宽度
+ * @param {string} setPsw 设置密码的单选框的id
+ * @param {string} verify 验证密码的单选框的id 因为只有两个选择，所以这个值不用也可以
+ */
+
+(function(window){
     function GesturePsw(opt){
         this.settings = {
             canvasId: 'canvas',
@@ -273,4 +291,4 @@
         });
     };
     window.GesturePsw = GesturePsw;
-})();
+})(window);
