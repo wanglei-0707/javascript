@@ -8,18 +8,19 @@ header{
     background: #f8f8f8;
 }
 header h1{
-    font-size: 2rem;
+    font-size: 1.8rem;
     color:#000;
 }
 .message{
     margin-top:2rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 .operator-wrapper{
     width:100%;
     position: absolute;
-    bottom:3rem;
-    font-size: 1.4rem;
+    bottom:0;
+    margin: 2rem 0;
+    font-size: 1rem;
 }
 .operator-item{
     margin-top: 1.5rem;
