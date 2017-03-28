@@ -99,12 +99,12 @@ var wl = (function(){
 		})(),
 		/**
 		 * canvas画五角星
-		 * @params {} cxt
-		 * @params {number} r 内圆半径
-		 * @params {number} R 外圆半径
-		 * @params {number} x x轴偏移量
-		 * @params {number} y y轴偏移量
-		 * @params {number} rot 旋转角度
+		 * @param {} cxt
+		 * @param {number} r 内圆半径
+		 * @param {number} R 外圆半径
+		 * @param {number} x x轴偏移量
+		 * @param {number} y y轴偏移量
+		 * @param {number} rot 旋转角度
 		 */
 		 drawStar: function(cxt,r,R,x,y,rot){
 			cxt.beginPath();

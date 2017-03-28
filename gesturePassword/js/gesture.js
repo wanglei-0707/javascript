@@ -162,16 +162,23 @@
     };
     /**
      * 绑定事件
+     * 内部的isEnd标志为用来记录触摸事件是否结束，因为当滑过已经经过的点时手动触发touchend事件，
+     * 此时手并没有离开屏幕，还会触发touchmove事件，所以需要一个标志位来记录触摸事件是否结束。
+     * 在touchmove事件处理程序中判断有没有结束。在touchend中也要判断，因为手动触发后，再松手时也还会触发touchend事件
      */
     GesturePsw.prototype.initEvent = function(){
-        var canvas = this.canvas;
-        var self = this;
-        var path = '';
-        var firstFlag = false;
-        var firstPath = '';
-        var message = self.message;
-        var isEnd = false;
+        var canvas = this.canvas,
+            message = this.message,
+            settings = this.settings,
+            self = this,
+            path = '',
+            firstPath = '',
+            isEnd = false;
+        // wl.addEvent(document, 'touchmove', function(e){
+        //     e.preventDefault();
+        // });
         wl.addEvent(canvas, 'touchstart', function(e){
+            wl.preDefault(e);
             path = '';
             isEnd = false;
             var pos = self.getEventPos(e);
@@ -181,28 +188,34 @@
             }
         });
         wl.addEvent(canvas, 'touchmove', function(e){
+            wl.preDefault(e);
             if(!isEnd){
                 var pos = self.getEventPos(e);
                 var ret = self.inWhichPoint(pos);
+                //如果当前点不在路径中，则加到路径中
                 if(ret && (path.indexOf(ret+'') === -1)){
                     path += ret;
-                }else if(ret && (ret !== +path[path.length-1])){
+                }
+                //如果当前点已经在路径中，则自动触发touchend事件，结束本次触摸事件
+                else if(ret && (ret !== +path[path.length-1])){
                     var evt = document.createEvent('Event');
                     evt.initEvent('touchend', false, false);
                     this.dispatchEvent(evt);
                     return;
                 }
-                self.cxt.clearRect(0, 0, self.settings.width, self.settings.height);
+                self.cxt.clearRect(0, 0, settings.width, settings.height);
                 self.drawCircle();
                 self.drawPath(path, pos);
             }
         });
         wl.addEvent(canvas, 'touchend', function(e){
+            wl.preDefault(e);
             if(!isEnd){
                 isEnd = true;
-                self.cxt.clearRect(0, 0, self.settings.width, self.settings.height);
+                self.cxt.clearRect(0, 0, settings.width, settings.height);
                 self.drawCircle();
-                self.drawPath(path, null);
+                self.drawPath(path);
+                //设置状态，第一次绘制
                 if(self.setPsw.checked && !firstPath){
                     if(path.length < 5){
                         message.innerHTML = "密码太短， 至少需要5个点";
@@ -212,7 +225,9 @@
                         message.innerHTML = "已记录图案";
                         self.repaintCircle("请再次输入手势密码");
                     }
-                }else if(firstPath){
+                }
+                //设置状态，第二次绘制
+                else if(firstPath){
                     if(firstPath !== path){
                         message.innerHTML = "两次输入的密码不一致";
                         firstPath = '';
@@ -223,7 +238,9 @@
                         firstPath = '';
                         self.repaintCircle("请输入手势密码");
                     }
-                }else{
+                }
+                //验证状态
+                else{
                     var psw = localStorage.getItem('psw');
                     if(!psw){
                         message.innerHTML = "请先设置密码";
