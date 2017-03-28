@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>手势密码</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/gesture.css">
+</head>
+<body>
+    <header>
+        <h1>手势密码</h1>
+    </header>
+    <canvas id="canvas">
+        当前浏览器不支持canvas，请更换浏览器后再试
+    </canvas>
+    <p class="message" id="message"></p>
+    <div class="operator-wrapper">
+        <div class="operator-item">
+            <input type="radio" name="operator" id="setPsw" checked>
+            <label for="setPsw">设置密码</label>
+        </div>
+        <div class="operator-item">
+            <input type="radio" name="operator" id="verifyPsw">
+            <label for="verify">验证密码</label>
+        </div>
+    </div>
+    <!-- <script src="js/jquery-3.1.1.min.js"></script> -->
+    <script src="js/wl.js"></script>
+    <script src="js/gesture.js"></script>
+    <script>
+        var gesture = new GesturePsw();
+    </script>
+</body>
+</html>

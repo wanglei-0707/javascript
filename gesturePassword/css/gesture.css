@@ -1,0 +1,32 @@
+
+body{
+    font-family: "Microsolft Yahei";
+    background: #f0f0f2;
+    text-align: center;
+}
+header{
+    padding:1rem;
+    background: #f8f8f8;
+}
+header h1{
+    font-size: 2rem;
+    color:#000;
+}
+.message{
+    margin-top:2rem;
+    font-size: 1.8rem;
+}
+.operator-wrapper{
+    width:100%;
+    position: absolute;
+    bottom:5rem;
+    font-size: 1.6rem;
+}
+.operator-item{
+    margin-top: 2rem;
+}
+.operator-item input[type="radio"]{
+    width:1.2rem;
+    height:1.2rem;
+    margin-right: 20px;
+}
