@@ -28,4 +28,4 @@
 
 [抽奖](https://wanglei-0707.github.io/javascript/lottery/index.html)
 
-[手势密码](https://wanglei-0707.github.io/javascript/GesturePassword/index.html)
+[手势密码](https://wanglei-0707.github.io/javascript/gesturePassword/index.html)
