@@ -189,9 +189,24 @@
             if(!isEnd){
                 var pos = self.getEventPos(e);
                 var ret = self.inWhichPoint(pos);
-                //如果当前点不在路径中，则加到路径中
+                //如果当前点不在路径中，则加到路径中, 如果横跨中间一个点，则也把中间那个点加到路径中
                 if(ret && (path.indexOf(ret+'') === -1)){
-                    path += ret;
+                    var last = +path[path.length-1];
+                    var min = Math.min(last, ret);
+                    var max = Math.max(last, ret);
+                    if(min === 1 && max === 3){
+                        path += '2' + ret;
+                    }else if(min === 1 && max === 7){
+                        path += '4' + ret;
+                    }else if(min === 3 && max === 9){
+                        path += '6' + ret;
+                    }else if(min === 7 && max === 9){
+                        path += '8' + ret;
+                    }else if((min === 1 && max === 9) || (min === 2 && max === 8) || (min === 3 && max === 7) || (min === 4 && max === 6)){
+                        path += '5' + ret;
+                    }else{
+                        path += ret;
+                    }
                 }
                 //如果当前点已经在路径中，则自动触发touchend事件，结束本次触摸事件
                 else if(ret && (ret !== +path[path.length-1])){
@@ -257,6 +272,5 @@
             }
         });
     };
-
     window.GesturePsw = GesturePsw;
 })();
