@@ -242,6 +242,7 @@
                     if(!psw){
                         message.innerHTML = "请先设置密码";
                         self.setPsw.checked = true;
+                        firstPath = '';
                         self.repaintCircle("请输入手势密码");
                         return;
                     }
