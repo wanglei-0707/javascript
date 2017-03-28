@@ -224,7 +224,7 @@
                     }
                 }
                 //设置状态，第二次绘制
-                else if(self.setPsw.checked && firstPath){
+                else if(self.setPsw.checked){
                     if(firstPath !== path){
                         message.innerHTML = "两次输入的密码不一致";
                         firstPath = '';
