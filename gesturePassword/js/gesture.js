@@ -161,7 +161,7 @@
         }, 2000);
     };
     /**
-     * 绑定事件
+     * 绑定事件 需要阻止事件的默认行为，因为移动端网页上下滑动时页面会跟着滑动
      * 内部的isEnd标志为用来记录触摸事件是否结束，因为当滑过已经经过的点时手动触发touchend事件，
      * 此时手并没有离开屏幕，还会触发touchmove事件，所以需要一个标志位来记录触摸事件是否结束。
      * 在touchmove事件处理程序中判断有没有结束。在touchend中也要判断，因为手动触发后，再松手时也还会触发touchend事件
@@ -174,9 +174,6 @@
             path = '',
             firstPath = '',
             isEnd = false;
-        // wl.addEvent(document, 'touchmove', function(e){
-        //     e.preventDefault();
-        // });
         wl.addEvent(canvas, 'touchstart', function(e){
             wl.preDefault(e);
             path = '';
@@ -227,7 +224,7 @@
                     }
                 }
                 //设置状态，第二次绘制
-                else if(firstPath){
+                else if(self.setPsw.checked && firstPath){
                     if(firstPath !== path){
                         message.innerHTML = "两次输入的密码不一致";
                         firstPath = '';
