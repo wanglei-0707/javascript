@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo list</title>
+    <style>
+        .input{
+            padding-left:20px;
+            width:200px;
+            height:30px;
+            line-height: 30px;
+        }
+        .todo-list{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        .todo-item{
+            position: relative;
+            padding-left:20px;
+            width:200px;
+            height:30px;
+            line-height: 30px;
+            border:1px solid #ccc;
+            border-top:none;
+        }
+        .close-btn{
+            color:red;
+            position: absolute;
+            right:5px;
+            display: none;
+            cursor: pointer;
+        }
+        .todo-item:hover .close-btn{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>今日头条3.30实习生笔试题</h1>
+    <h2>设计一个todo list</h2>
+    <p>
+        实现添加功能：输入框中可输入任意字符，按回车后将输入字符串添加到下方列表的最后，并清空输入框
+        <br>
+        实现删除功能：点击列表项后面的“X”号，可以删除该项
+        <br>
+        实现模糊匹配：在输入框中输入字符后，将当前输入字符串与已添加的列表项进行模糊匹配，将匹配到的结果显示在输入框下方。
+        如匹配不到任何列表项，列表显示为空。
+    </p>
+    <input type="text" value="" class="input" id="input">
+    <ul class="todo-list" id="todolist"></ul>
+    <script>
+        var input = document.getElementById("input");
+        var list = document.getElementById('todolist');
+        var lis = list.getElementsByTagName('li');
+        document.addEventListener('keydown', function(e){
+            if(e.keyCode == 13){
+                var val = input.value;
+                for(var i=0,len=lis.length;i<len;i++){
+                    lis[i].style.display = 'block';
+                }
+                if(val){
+                    var li = document.createElement('li');
+                    li.className = 'todo-item';
+                    li.innerHTML = val;
+                    var span= document.createElement('span');
+                    span.className = 'close-btn';
+                    span.innerHTML = "X";
+                    li.appendChild(span);
+                    list.appendChild(li);
+                    input.value = "";
+                }
+            }
+        }, false);
+        function delegateEvent(ele, type, tag, handler){
+            ele.addEventListener(type, function(e){
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                if(target.tagName.toLowerCase() === tag){
+                    handler.call(null, target);
+                }
+            }, false);
+        }
+        delegateEvent(list, 'click', 'span', function(tag){
+            tag.parentNode.parentNode.removeChild(tag.parentNode);
+        });
+        input.addEventListener('input', function(e){
+            var val = this.value;
+            for(var i=0,len=lis.length;i<len;i++){
+                if(lis[i].innerHTML.indexOf(val) !== -1){
+                    lis[i].style.display = 'block';
+                }else{
+                    lis[i].style.display = 'none';
+                }
+            }
+        }, false);
+    </script>
+</body>
+</html>
