@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>EventEmitter test html</title>
+  </head>
+  <body>
+    <script src='./EventEmitter.js'></script>
+    <script>
+      var eventEmitter = new EventEmitter()
+      function eat (...data) {
+        console.log(`eat ${data}`)
+      }
+      function drink (...data) {
+        console.log(`drink ${data}`)
+      }
+      eventEmitter.addListener('breakfast', eat)
+      eventEmitter.addListener('breakfast', drink)
+      eventEmitter.addListener('lunch', eat)
+      eventEmitter.addListener('dinner', eat)
+      eventEmitter.emit('breakfast', 'egg') // eat egg; drink egg;
+      eventEmitter.addListener('lunch', eat)
+      eventEmitter.emit('lunch', '米线') // eat 米线; eat 米线；
+      eventEmitter.emit('dinner', '焖子', '烤冷面') // eat 焖子,烤冷面
+      eventEmitter.removeListener('breakfast', drink)
+      eventEmitter.emit('breakfast', 'egg') // eat egg
+      eventEmitter.once('afternoon tea', eat)
+      eventEmitter.emit('afternoon tea', '甜点', '冰淇淋') // eat 甜点，冰淇淋
+      eventEmitter.emit('afternoon tea', '炸鸡', '啤酒') //
+    </script>
+  </body>
+</html>
